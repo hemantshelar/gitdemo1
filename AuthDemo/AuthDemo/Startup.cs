@@ -16,7 +16,11 @@ namespace AuthDemo
             //inside Sytem.Web.Mvc
             RouteTable.Routes.MapRoute("default", "{controller}/{action}/{id}", new { controller = "Home" , action = "Index",id = "0"});
 
-
+            app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions
+            {
+                LoginPath = new Microsoft.Owin.PathString("/Home/Login"),
+                AuthenticationType = "AuthenticationTypeCookie",
+            });
         }
     }
 }
